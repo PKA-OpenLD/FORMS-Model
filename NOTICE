@@ -1,0 +1,53 @@
+Traffic Density Monitoring System (AI Model & Detection Logic)
+Copyright 2025 PKA-OpenLD
+
+Licensed under the Apache License, Version 2.0.
+
+--------------------------------------------------------------------------------
+THIRD-PARTY SOFTWARE NOTICES
+--------------------------------------------------------------------------------
+
+This software utilizes the following open-source libraries and frameworks.
+The full text of the licenses can be found in the project's dependency definition files.
+
+Name                License       Description                                     Url
+----------------------------------------------------------------------------------------------------------------------------
+Ultralytics YOLO    AGPL-3.0      Real-time object detection model (YOLOv8/11)    https://github.com/ultralytics/ultralytics
+OpenCV              Apache 2.0    Open Source Computer Vision Library             https://opencv.org/
+PyYAML              MIT           YAML parser and emitter for Python              https://pyyaml.org/
+Requests            Apache 2.0    Python HTTP for Humans                          https://requests.readthedocs.io/
+NumPy               BSD-3         Fundamental package for array computing         https://numpy.org/
+Pillow              HPND          Python Imaging Library (Fork)                   https://python-pillow.org/
+
+--------------------------------------------------------------------------------
+OPEN DATASETS ATTRIBUTION (CC BY 4.0)
+--------------------------------------------------------------------------------
+This project utilizes open datasets for training and validation, sourced from 
+Roboflow Universe. In compliance with the CC BY 4.0 license, we provide the 
+following attribution:
+
+1. Road Flood Water Dataset
+   - Author: FF
+   - Source: Roboflow Universe
+   - License: CC BY 4.0
+   - URL: https://universe.roboflow.com/ff-vzbf7/road-flood-water
+   - Usage: Used for training flood detection model.
+
+2. Vehicle Detection Project
+   - Author: luong duc
+   - Source: Roboflow Universe
+   - License: CC BY 4.0
+   - URL: https://universe.roboflow.com/luong-duc/vehicle_detection_project-8jikm
+   - Usage: Used for training vehicle counting and classification model.
+
+Note: The model weights provided in this repository are trained based on these 
+datasets.
+
+--------------------------------------------------------------------------------
+MODEL WEIGHTS NOTICE
+--------------------------------------------------------------------------------
+The pre-trained weights and custom trained weights included in this repository 
+are derived works based on the Ultralytics YOLO architecture.
+
+Users must comply with the terms of the AGPL-3.0 license (GNU Affero General 
+Public License v3.0) regarding the usage and distribution of the YOLO model logic.
