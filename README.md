@@ -1,4 +1,9 @@
-# 🚦 Traffic Density Monitoring System
+
+<p align="center">
+  <img src="docs/FORMS_logo.png" alt="FORMS Logo" width="600"/>
+</p>
+
+<h1 align = "center">🚦 Traffic Density Monitoring System</h1>
 
 <div align="center">
 
@@ -7,110 +12,107 @@
 ![YOLO](https://img.shields.io/badge/YOLO-v8%20%7C%20v11-green.svg)
 ![Dataset License](https://img.shields.io/badge/dataset-CC%20BY%204.0-orange.svg)
 
-*AI-powered real-time traffic density monitoring system using YOLO for vehicle detection and counting*
-
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Documentation](#-documentation) • [License](#-license)
-
+*Hệ thống giám sát mật độ giao thông theo thời gian thực sử dụng AI, YOLO để phát hiện và đếm phương tiện*
 </div>
 
----
 
-## 📋 Overview
 
-This is an AI computer vision system that uses **YOLO (You Only Look Once)** for real-time vehicle detection and counting. The system automatically sends alerts when traffic density exceeds thresholds and integrates with flood/congestion monitoring systems via API.
+## 📋 Tổng quan
 
-### Key Capabilities
+Đây là hệ thống thị giác máy tính sử dụng **YOLO (You Only Look Once)** để phát hiện và đếm phương tiện theo thời gian thực. Hệ thống tự động gửi cảnh báo khi mật độ giao thông vượt ngưỡng và tích hợp với hệ thống giám sát ngập/lũ và tắc đường qua API.
 
-- 🚗 **8 Vehicle Classes**: Car, Bus, Truck, Van, Container Truck, Fire Engine, Motorcycle, Bicycle
-- 📹 **Real-time Processing**: Detect and count vehicles from camera/video feeds
-- 🚨 **Smart Alerting**: Automatic notifications when density exceeds thresholds
-- 🗺️ **Multi-location Support**: Monitor multiple intersections simultaneously
-- 🔗 **API Integration**: Seamlessly integrates with backend sensor systems
-- ⚡ **High Performance**: Supports both CPU and GPU acceleration
+### Khả năng chính
 
----
-
-## 🚀 Features
-
-### Detection & Monitoring
-- Real-time vehicle detection using YOLOv8/v11
-- Support for 8 vehicle classes with high accuracy
-- Configurable confidence thresholds
-- Multiple camera/location monitoring
-- Save detection images and videos
-
-### Alert System
-- Density-based threshold alerts
-- Configurable cooldown periods
-- API integration for automated zone creation
-- Historical data tracking
-
-### Performance
-- YOLOv8s: Balanced speed and accuracy
-- YOLOv11n: Ultra-fast for edge devices (5.4MB)
-- GPU acceleration support (CUDA)
-- Efficient frame processing
+- 🚗 **8 Loại phương tiện**: Car, Bus, Truck, Van, Container Truck, Fire Engine, Motorcycle, Bicycle
+- 📹 **Xử lý thời gian thực**: Phát hiện và đếm phương tiện từ camera/video
+- 🚨 **Cảnh báo thông minh**: Thông báo tự động khi mật độ vượt ngưỡng
+- 🗺️ **Hỗ trợ đa vị trí**: Giám sát nhiều giao lộ cùng lúc
+- 🔗 **Tích hợp API**: Kết nối trực tiếp với hệ thống backend sensor
+- ⚡ **Hiệu năng cao**: Hỗ trợ tăng tốc CPU và GPU
 
 ---
 
-## 📦 Installation
+## 🚀 Tính năng
 
-### Prerequisites
+### Phát hiện & Giám sát
+- Phát hiện phương tiện thời gian thực sử dụng YOLOv8/v11
+- Hỗ trợ 8 loại phương tiện với độ chính xác cao
+- Ngưỡng confidence có thể cấu hình
+- Giám sát đa camera/vị trí
+- Lưu ảnh và video phát hiện
 
-- Python 3.8 or higher
-- pip package manager
-- (Optional) CUDA-enabled GPU for faster processing
+### Hệ thống cảnh báo
+- Cảnh báo dựa trên ngưỡng mật độ
+- Thời gian cooldown có thể cấu hình
+- Tích hợp API để tạo zone tự động
+- Theo dõi dữ liệu lịch sử
 
-### Quick Start
+### Hiệu năng
+- YOLOv8s: Cân bằng tốc độ và độ chính xác
+- YOLOv11n: Rất nhanh cho thiết bị edge (5.4MB)
+- Hỗ trợ tăng tốc GPU (CUDA)
+- Xử lý frame hiệu quả
 
-1. **Clone the repository**
+---
+
+## 📦 Cài đặt
+
+### Yêu cầu hệ thống
+
+- Python 3.8 trở lên
+- Trình quản lý gói pip
+- (Tùy chọn) GPU hỗ trợ CUDA để tăng tốc
+
+### Bắt đầu nhanh
+
+1. **Clone repository**
 ```bash
 git clone <repository-url>
 cd models
 ```
 
-2. **Install dependencies**
+2. **Cài đặt dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Download pre-trained models**
+3. **Tải mô hình đã huấn luyện trước**
 
-Models are included in the repository:
-- `yolo11n.pt` - YOLO v11 Nano (5.4MB) - Fast inference
-- `yolov8s.pt` - YOLO v8 Small (22MB) - Better accuracy
+Các mô hình đã được bao gồm trong repository:
+- `yolo11n.pt` - YOLO v11 Nano (5.4MB) - Inference nhanh
+- `yolov8s.pt` - YOLO v8 Small (22MB) - Độ chính xác tốt hơn
 
-Or download custom-trained models from `runs/detect/train/weights/best.pt`
+Hoặc tải mô hình custom từ `runs/detect/train/weights/best.pt`
 
 ---
 
-## 🎯 Usage
+## 🎯 Sử dụng
 
-### Training a Model
+### Huấn luyện mô hình
 
 ```bash
 python train.py
 ```
 
-This will:
-- Load the dataset from `dataset/` directory
-- Train using the configuration in `data.yaml`
-- Save results to `runs/detect/train*/`
-- Generate metrics plots and confusion matrix
+Hành động này sẽ:
+- Tải dataset từ thư mục `dataset/`
+- Huấn luyện theo cấu hình trong `data.yaml`
+- Lưu kết quả vào `runs/detect/train*/`
+- Tạo biểu đồ metrics và confusion matrix
 
-Training parameters can be customized in `train.py`:
-- `epochs`: Number of training epochs (default: 10)
-- `imgsz`: Image size (default: 640)
-- `batch`: Batch size (default: 16)
-- `device`: 'cpu' or 'cuda'
+Các tham số huấn luyện có thể cấu hình trong `train.py`:
+- `epochs`: Số epoch (mặc định: 10)
+- `imgsz`: Kích thước ảnh (mặc định: 640)
+- `batch`: Kích thước batch (mặc định: 16)
+- `device`: 'cpu' hoặc 'cuda'
 
-### Real-time Monitoring
+### Giám sát thời gian thực
 
 ```bash
 python traffic_monitor.py
 ```
 
-Configuration is in `monitor_config.yaml`:
+Cấu hình trong `monitor_config.yaml`:
 
 ```yaml
 locations:
@@ -120,22 +122,22 @@ locations:
       lat: 10.762622
       lon: 106.660172
     density_threshold: 15
-    video_source: 0  # or "path/to/video.mp4"
+    video_source: 0  # hoặc "path/to/video.mp4"
     
 model:
   path: "runs/detect/train/weights/best.pt"
   confidence_threshold: 0.5
-  device: "cpu"  # or "cuda"
+  device: "cpu"  # hoặc "cuda"
 ```
 
-### Using the API Client
+### Sử dụng API Client
 
 ```python
 from api_client import APIClient
 
 client = APIClient(endpoint="http://localhost:3000/api/sensor-data")
 
-# Send sensor data
+# Gửi dữ liệu sensor
 result = client.send_sensor_data(
     location_id="sensor-01",
     vehicle_count=25,
@@ -148,19 +150,19 @@ result = client.send_sensor_data(
 
 ## 📊 Dataset
 
-### Dataset Information
+### Thông tin Dataset
 
-- **Total Images**: 3,376 images
+- **Tổng số ảnh**: 3,376 images
   - Training: 2,363 images
   - Validation: 675 images
   - Testing: 338 images
-- **Format**: YOLOv11 (YOLO format)
-- **Resolution**: 640x640
+- **Định dạng**: YOLOv11 (YOLO format)
+- **Độ phân giải**: 640x640
 - **Classes**: 8 vehicle types
 - **License**: CC BY 4.0
-- **Source**: [Roboflow Universe](https://universe.roboflow.com/luong-duc/vehicle_detection_project-8jikm/dataset/1)
+- **Nguồn**: [Roboflow Universe](https://universe.roboflow.com/luong-duc/vehicle_detection_project-8jikm/dataset/1)
 
-### Vehicle Classes
+### Các loại phương tiện
 
 ```yaml
 0: bicycle
@@ -173,14 +175,14 @@ result = client.send_sensor_data(
 7: van
 ```
 
-### Label Format
+### Định dạng nhãn
 
-YOLO format (normalized coordinates 0.0-1.0):
+YOLO format (tọa độ chuẩn hóa 0.0-1.0):
 ```
 <class_id> <x_center> <y_center> <width> <height>
 ```
 
-Example:
+Ví dụ:
 ```
 2 0.5124 0.3456 0.1234 0.2345  # car
 5 0.7890 0.6543 0.0987 0.1543  # motorcycle
@@ -188,43 +190,43 @@ Example:
 
 ---
 
-## 🏗️ Project Structure
+## 🏗️ Cấu trúc dự án
 
 ```
 models/
-├── train.py                    # Training script
-├── traffic_monitor.py          # Main monitoring application
-├── api_client.py               # API integration client
-├── monitor_config.yaml         # Monitoring configuration
-├── data.yaml                   # Dataset configuration
+├── train.py                    # Script huấn luyện
+├── traffic_monitor.py          # Ứng dụng giám sát chính
+├── api_client.py               # Client tích hợp API
+├── monitor_config.yaml         # Cấu hình giám sát
+├── data.yaml                   # Cấu hình dataset
 │
-├── yolo11n.pt                  # Pre-trained YOLO v11 nano
-├── yolov8s.pt                  # Pre-trained YOLO v8 small
+├── yolo11n.pt                  # Mô hình YOLO v11 nano đã huấn luyện
+├── yolov8s.pt                  # Mô hình YOLO v8 small đã huấn luyện
 │
-├── dataset/                    # Training dataset
+├── dataset/                    # Dataset huấn luyện
 │   ├── train/
 │   │   ├── images/
 │   │   └── labels/
 │   ├── valid/
 │   └── test/
 │
-├── runs/                       # Training results
+├── runs/                       # Kết quả huấn luyện
 │   └── detect/
 │       └── train/
 │           └── weights/
-│               ├── best.pt     # Best model checkpoint
-│               └── last.pt     # Last checkpoint
+│               ├── best.pt
+│               └── last.pt
 │
-├── detections/                 # Saved detection images
-├── output_videos/              # Processed videos
-├── monitoring.log              # Application logs
+├── detections/                 # Ảnh phát hiện lưu
+├── output_videos/              # Video xử lý lưu
+├── monitoring.log              # Log ứng dụng
 │
-└── requirements.txt            # Python dependencies
+└── requirements.txt            # Dependencies Python
 ```
 
 ---
 
-## 🔧 Configuration
+## 🔧 Cấu hình
 
 ### Monitor Configuration (`monitor_config.yaml`)
 
@@ -243,13 +245,13 @@ locations:
       lat: 10.762622
       lon: 106.660172
     density_threshold: 15
-    video_source: 0  # 0 for webcam, or video file path
+    video_source: 0  # 0 cho webcam, hoặc video file path
     
 # Model Settings
 model:
   path: "runs/detect/train/weights/best.pt"
   confidence_threshold: 0.5
-  device: "cpu"  # or "cuda"
+  device: "cpu"  # hoặc "cuda"
   
 # Processing Settings
 processing:
@@ -264,146 +266,3 @@ logging:
   file: "monitoring.log"
 ```
 
----
-
-## 📈 Performance
-
-### Model Comparison
-
-| Model | Size | Speed (CPU) | mAP@0.5 | Use Case |
-|-------|------|-------------|---------|----------|
-| YOLOv11n | 5.4MB | ~30 FPS | ~85% | Edge devices, real-time |
-| YOLOv8s | 22MB | ~20 FPS | ~90% | Balanced, production |
-| Custom Trained | Variable | Variable | 92%+ | Best accuracy |
-
-### System Requirements
-
-**Minimum:**
-- CPU: Dual-core 2.0 GHz
-- RAM: 4 GB
-- Storage: 2 GB
-
-**Recommended:**
-- CPU: Quad-core 3.0 GHz or NVIDIA GPU (CUDA)
-- RAM: 8 GB
-- Storage: 10 GB
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Issue: Model not loading**
-```bash
-# Check if model file exists
-ls -lh runs/detect/train/weights/best.pt
-
-# Verify Ultralytics installation
-python -c "from ultralytics import YOLO; print('OK')"
-```
-
-**Issue: Low FPS**
-- Reduce image size: `imgsz=416` or `320`
-- Enable GPU: `device='cuda'`
-- Increase frame skip: `frame_skip=2`
-- Use YOLOv11n for faster inference
-
-**Issue: API connection failed**
-- Check endpoint URL in `monitor_config.yaml`
-- Verify backend service is running
-- Check network connectivity
-
-### Debug Mode
-
-Enable debug logging:
-```yaml
-logging:
-  level: "DEBUG"
-```
-
-View logs:
-```bash
-tail -f monitoring.log
-```
-
----
-
-## 🗺️ Roadmap
-
-### Current Features ✅
-- [x] YOLO detection (8 vehicle classes)
-- [x] Real-time monitoring
-- [x] Threshold-based alerting
-- [x] API integration
-- [x] Multi-location support
-
-### Planned Features 🚧
-- [ ] Vehicle tracking with IDs
-- [ ] Speed estimation
-- [ ] Traffic flow analysis
-- [ ] License plate recognition
-- [ ] Historical trend analysis
-- [ ] Mobile app integration
-- [ ] Cloud deployment support
-
----
-
-## 📚 Documentation
-
-### Additional Resources
-
-- [System Analysis Document](PHAN_TICH_HE_THONG.md) - Detailed technical documentation (Vietnamese)
-- [Ultralytics YOLO Docs](https://docs.ultralytics.com/)
-- [Dataset on Roboflow](https://universe.roboflow.com/luong-duc/vehicle_detection_project-8jikm/dataset/1)
-
-### API Reference
-
-See [api_client.py](api_client.py) for detailed API integration examples.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the **Apache License 2.0** - see the [LICENSE](LICENSE) file for details.
-
-Dataset is licensed under **CC BY 4.0** - see dataset documentation for details.
-
----
-
-## 👥 Authors & Acknowledgments
-
-- **Maintainer**: PKA-OpenLD
-- **Dataset**: [Luong Duc](https://universe.roboflow.com/luong-duc) via Roboflow Universe
-- **YOLO Framework**: [Ultralytics](https://github.com/ultralytics/ultralytics)
-
----
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Open an issue on GitHub
-- Check existing documentation
-- Review the system analysis document
-
----
-
-<div align="center">
-
-**Made with ❤️ using YOLO and OpenCV**
-
-*Last updated: December 2025*
-
-</div>
